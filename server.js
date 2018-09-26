@@ -2,7 +2,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var mongojs = require("mongojs");
+
 // Require request and cheerio. This makes the scraping possible
 var request = require("request");
 var cheerio = require("cheerio");
@@ -10,13 +10,18 @@ var cheerio = require("cheerio");
 var databaseUrl = "scraper";
 var collections = ["scrapedData"];
 
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/week18Populater", { useNewUrlParser: true });
+
+// Require all models
+var db = require("./models");
 var db = mongojs(databaseUrl, collections);
+
 db.on("error", function(error) {
   console.log("Database Error:", error);
 });
 
 var app = express();
-
 // Listen on port 3000
 
 // Middleware
