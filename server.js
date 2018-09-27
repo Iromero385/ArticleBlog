@@ -5,7 +5,9 @@ var cheerio = require("cheerio");
 var databaseUrl = "scraper";
 var collections = ["scrapedData"];
 var mongoose = require("mongoose");
-
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI);
 
 var PORT = 3000;
 // Require all models
@@ -15,23 +17,10 @@ var app = express();
 
 // Use body-parser for handling form submissions
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 // Use express.static to serve the public folder as a static directory
 app.use(express.static("public"));
-
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/populatedb", { useNewUrlParser: true });
 var exphbs = require("express-handlebars");
-// Require request and cheerio. This makes the scraping possible
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/articleScrapper", { useNewUrlParser: true });
-
-// Listen on port 3000
-
-// Middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(express.static("public"));
-
 // Handlebars
 app.engine(
   "handlebars",
