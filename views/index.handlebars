@@ -1,17 +1,22 @@
 
 {{#each articles}}
-    <div class="card-header bg-primary ">
-        <div class="h3 text-white" id="articleTitle">
-            Article Tittle: {{title}}
+<div class="card p-0 mb-4">
+    <div class="card-header p-2 titles" data-id={{_id}} style="background-color:gray" >
+        <div class="h3 text-white" >
+            ** {{title}} **
+            <h6 class="font-weight-bold text-dark">click title to post comment</h6>
         </div>
     </div>
-    <div class="card-body h4">
+    <div class="card-body h5">
         <div class="float-left">
-            <img src={{image}} alt="article image" class="img-thumbnail" style="height: 200px;">
+            <img src="https://i2.wp.com/www.gahtan.com/alan/images/bs00971_.gif" alt="article image" class="img-thumbnail mr-5" style="height: 200px;">
         </div>
-        <div class="h4 ml-3 mt-2">
-            <p id="articleSummary">{{summary}}</p></div>
+        <div class="h4 mt-2 p-5">
+            <a href={{link}}> {{link}}</a>
+        </div>
     </div>
+
+</div>
 
 {{/each}}
 

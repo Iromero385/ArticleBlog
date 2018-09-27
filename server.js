@@ -1,27 +1,30 @@
-
 var express = require("express");
 var bodyParser = require("body-parser");
-var exphbs = require("express-handlebars");
-
-// Require request and cheerio. This makes the scraping possible
 var request = require("request");
 var cheerio = require("cheerio");
-
 var databaseUrl = "scraper";
 var collections = ["scrapedData"];
+var mongoose = require("mongoose");
 
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/week18Populater", { useNewUrlParser: true });
 
+var PORT = 3000;
 // Require all models
 var db = require("./models");
-var db = mongojs(databaseUrl, collections);
-
-db.on("error", function(error) {
-  console.log("Database Error:", error);
-});
-
+// Initialize Express
 var app = express();
+
+// Use body-parser for handling form submissions
+app.use(bodyParser.urlencoded({ extended: true }));
+// Use express.static to serve the public folder as a static directory
+app.use(express.static("public"));
+
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/populatedb", { useNewUrlParser: true });
+var exphbs = require("express-handlebars");
+// Require request and cheerio. This makes the scraping possible
+// Connect to the Mongo DB
+mongoose.connect("mongodb://localhost/articleScrapper", { useNewUrlParser: true });
+
 // Listen on port 3000
 
 // Middleware

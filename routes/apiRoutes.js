@@ -1,4 +1,8 @@
-var db = require("./models");
+var db = require("./../models");
+var request = require("request");
+var cheerio = require("cheerio");
+var axios = require("axios");
+
 module.exports = function(app) {
   // Get all examples
 

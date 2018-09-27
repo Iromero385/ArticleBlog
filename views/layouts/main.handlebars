@@ -1,73 +1,76 @@
-<!DOCTYPE html>
+<!DOCTYPE <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="/styles/styles.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
   <title>Home Page</title>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
-        <div class="container">
-            <div class="col-md-12 display- text-primary text-center rounded-circle font-weight-bold p-4" style="background-color: black">
-                Article Friendly
-            </div>
-        </div>
-    </nav>
-    <div class="container" style="font-family: 'Times New Roman', Times, serif">
-        <div class="row">
-            <div class="col-md-3 bg-dark rounded text-white mt-1">
-                <div class="h2 mt-2">Welcome: <p id="userLabel"></p> </div>
-            </div>
-            <div class="col-md-3 offset-md-6 bg-dark rounded mt-1">
-                <div class="h2 text-white mt-2"> Date: 9/23/2018</div>
-            </div>
-        </div>
-        <div class="row mt-3">
-          <div class="col-md-12 p-0">
-            <!-- need to add a data-types so when click happens i can identify which article was clicked -->
-            <div class="card p-0">
-                      {{{body}}}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top ">
+    <div class="container">
+      <div class="col-md-12 display-1 text-primary text-center rounded-circle font-weight-bold p-4" style="background-color: black">
+        Article Friendly
+      </div>
+    </div>
+  </nav>
+  <div class="container" style="font-family: 'Times New Roman', Times, serif">
+    <div class="row">
+      <div class="col-md-3 offset-md-9 bg-dark rounded mt-1">
+        <div class="h2 text-white mt-2"> Date: 9/23/2018</div>
+      </div>
+    </div>
+    <div class="row mt-3">
+      <div class="col-md-12 p-0">
+        <!-- need to add a data-types so when click happens i can identify which article was clicked -->
+
+        {{{body}}}
+
+      </div>
+    </div>
+    <!-- Button trigger modal -->
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="articleComments" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            {{!-- notes go here --}}
+
+            ...
+            {{!-- submition entry goes here --}}
+            <div class="form-group">
+              <label for="exampleTextarea">Example textarea</label>
+              <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
             </div>
           </div>
-        </div>
-        <!-- Button trigger modal -->
-        </button>
-        
-        <!-- Modal -->
-        <div class="modal fade" id="articleComments" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+            <button id="submit" type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
-        </div>
+      </div>
+    </div>
+  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script>
-        $(".card").on("click", function(event){
-            $("#articleComments").modal("toggle")
-        })
-        </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+  <script src="./js/main.js"></script>
 </body>
 
 </html>
